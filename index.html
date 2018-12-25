@@ -5,156 +5,155 @@
 	<meta charset="UTF-8">
 	<title>My cats-slider)</title>
 	<script>
-		document.addEventListener('DOMContentLoaded', () => {
-			const cats = [
-				"https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495636.svg",
-				"https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495625.svg",
-				"https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495622.svg",
-				"https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495619.svg",
-				"https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495616.svg",
-				"https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495613.svg",
-				"https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495592.svg",
-				"https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495579.svg",
-				"https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/336916.svg"
-			];
+	document.addEventListener("DOMContentLoaded", () => {
+  	const cats = [
+    	"https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495636.svg",
+    	"https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495625.svg",
+    	"https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495622.svg",
+    	"https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495619.svg",
+    	"https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495616.svg",
+    	"https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495613.svg",
+    	"https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495592.svg",
+    	"https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495579.svg",
+    	"https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/336916.svg"
+  	];
 
-			function Slider({ root, images}) {
-				let currentSlide = 0;
-				root.innerHTML = `
-				<div class="wrapper">
-					<div class="circle" num= "0">1</div>
-					<div class="circle" num= "1">2</div>
-					<div class="circle" num= "2">3</div>
-					<div class="circle" num= "3">4</div>
-					<div class="circle" num= "4">5</div>
-					<div class="circle" num= "5">6</div>
-					<div class="circle" num= "6">7</div>
-					<div class="circle" num= "7">8</div>
-				  <div class="circle" num= "8">9</div>
-				</div>
-				<div class="wrapp">
-					<button class="button-previous">&#8249</button>
-					<img src="https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495636.svg" alt="cat">
-					<button class="button-next">&#8250</button>
-				<div>
-				`;
+  	function Slider({ root, images }) {
+   	 let currentSlide = 0;
+   	 root.innerHTML = `
+					<div class="wrapper">
+						<div class="circle" num= "0">1</div>
+						<div class="circle" num= "1">2</div>
+						<div class="circle" num= "2">3</div>
+						<div class="circle" num= "3">4</div>
+						<div class="circle" num= "4">5</div>
+						<div class="circle" num= "5">6</div>
+						<div class="circle" num= "6">7</div>
+						<div class="circle" num= "7">8</div>
+				  	<div class="circle" num= "8">9</div>
+					</div>
+					<div class="wrapp">
+						<button class="button-previous">&#8249</button>
+						<img src="https://storage.googleapis.com/ck-kitty-image/0x06012c8cf97bead5deae237070f9587f8e7a266d/495636.svg" alt="cat">
+						<button class="button-next">&#8250</button>
+					<div>
+					`;
 
-				this.goToNextSlide = () => {
-					if (currentSlide === cats.length - 1) {
-						currentSlide = 0;
-					} else {
-						currentSlide++;
-					}
-				};
+    	this.goToNextSlide = () => {
+     	 if (currentSlide === cats.length - 1) {
+      	  currentSlide = 0;
+      	} else {
+        	currentSlide++;
+      	}
+    	};
 
-				this.goToPreviousSlide = () => {
-					if (currentSlide === 0) {
-						currentSlide = cats.length - 1;
-					} else {
-						currentSlide--;
-					}
-				};
+    	this.goToPreviousSlide = () => {
+      	if (currentSlide === 0) {
+        	currentSlide = cats.length - 1;
+      	} else {
+        	currentSlide--;
+      	}
+    	};
 
-				root.addEventListener('click', (e) => {
-					if (e.target.matches('.button-previous')) {
-						this.goToPreviousSlide();
-						updateSlide();
-					}
-					if (e.target.matches('.button-next')) {
-						this.goToNextSlide();
-						updateSlide();
-					}
-				});
+    	root.addEventListener("click", e => {
+      	if (e.target.matches(".button-previous")) {
+        	this.goToPreviousSlide();
+        	updateSlide();
+      	}
+      	if (e.target.matches(".button-next")) {
+        	this.goToNextSlide();
+        	updateSlide();
+      	}
+    	});
 
-				root.querySelector('.wrapper').addEventListener('click', (e)=>{
-				if(e.target.className === 'circle'){
-					currentSlide=parseInt(e.target.getAttribute('num', 10));
-					updateSlide();
-				}
-				});
+    	root.querySelector(".wrapper").addEventListener("click", e => {
+      	if (e.target.className === "circle") {
+        	currentSlide = parseInt(e.target.getAttribute("num", 10));
+        	updateSlide();
+      	}
+    	});
 
-				function updateSlide() {
-          root.querySelector('img').src = cats[currentSlide];
-          document.getElementById("page").innerText = `${currentSlide+1}/${cats.length}`;
-        };
-			}
+    	function updateSlide() {
+      	root.querySelector("img").src = cats[currentSlide];
+      	document.getElementById("page").innerText = `${currentSlide + 1}/${
+        	cats.length
+      	}`;
+    	}
+  	}
+
+  	const slider = new Slider({
+    	images: cats,
+    	root: document.querySelector("#slider-1")
+  	});
+  	const slider2 = new Slider({
+    	images: cats,
+    	root: document.querySelector("#slider-2")
+  	});
+	});
 
 
-			const slider = new Slider({
-				images: cats,
-				root: document.querySelector('#slider-1')
-			});
-			const slider2 = new Slider({
-				images: cats,
-				root: document.querySelector('#slider-2')
-			});
-		})
 	</script>
 
 	<style>
-		img {
-			width: 45%;
-			height: 45%;
-			margin: auto;
+	img {
+		width: 45%;
+		height: 45%;
+		margin: auto;
+	}
 
-		}
+	body {
+		background: rgb(221, 218, 236);
+	}
 
-		body {
-			background: rgb(221, 218, 236);
-		}
+	.wrapp {
+		display: flex;
+		flex-direction: row;
 
-		.wrapp {
-			display: flex;
-			flex-direction: row;
+	}
 
-		}
+	.button-previous {
+		background-color: #f1f1f1;
+		color: black;
+		border-radius: 20px;
+		border: 0;
+		width: 30px;
+		height: 30px;
+		font-size: 20px;
+		margin-top: 20%;
+		margin-left: 10%;
+	}
 
-		.button-previous {
-			background-color: #f1f1f1;
-			color: black;
-			border-radius: 20px;
-			border: 0;
-			width: 30px;
-			height: 30px;
-			font-size: 20px;
-			margin-top: 20%;
-			margin-left: 10%;
-		}
+	.button-next {
+		background-color: #f1f1f1;
+		color: black;
+		border-radius: 20px;
+		border: 0;
+		width: 30px;
+		height: 30px;
+		font-size: 20px;
+		margin-top: 20%;
+		margin-right: 10%;
+	}
 
-		.button-next {
-			background-color: #f1f1f1;
-			color: black;
-			border-radius: 20px;
-			border: 0;
-			width: 30px;
-			height: 30px;
-			font-size: 20px;
-			margin-top: 20%;
-			margin-right: 10%;
-		}
+	.wrapper {
+		display: flex;
+		justify-content: center;
+	}
 
-		.wrapper {
-			display: flex;
-			justify-content: center;
-		}
+	.circle {
+		background: white;
+		color: black;
+		border-radius: 10px;
+		width: 20px;
+		height: 20px;
+		margin-right: 5px;
+		text-align: center;
+	}
 
-		.circle {
-			background: white;
-			color: black;
-			border-radius: 10px;
-			width: 20px;
-			height: 20px;
-			margin-right: 5px;
-			text-align: center;
-		}
+	.circle:hover {
+		background: lightblue;
+	}
 
-		.circle:hover {
-			background: lightblue;
-		}
-
-		#circle:focus {
-			background: lightblue;
-		}
 	</style>
 </head>
 
