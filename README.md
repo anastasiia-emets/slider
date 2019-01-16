@@ -1,7 +1,7 @@
 # slider
 Slider
 It is a very simple slider on JS) You can use it to create mini-galleries for a variety of pictures. for example, I used a photo of cats)
-[See result here](https://anastasiia-emets.github.io/slider/)
+# [DEMO](https://anastasiia-emets.github.io/slider/)
 # technology
 - html
 - css
